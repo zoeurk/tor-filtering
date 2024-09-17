@@ -22,7 +22,7 @@ It's like that who I have see how to filtering Tor Network
   
 ## codes
 I give you somthing to try  
-You should modify it.  
+You should modify it (you are free to share, modify, redistribute, ...).  
 You can integrate it on your site.  
 Maybe Developpers, systems administrators (,...)  
-have to discuss this among themselves.
+have to discuss this among themselves.  
