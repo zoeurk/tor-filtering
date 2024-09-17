@@ -1,5 +1,5 @@
 <?php
-	exec(". /opt/get-ip.src", $msg, $ret);
+	exec(". /opt/tor/get-ip.src", $msg, $ret);
 	if($msg[0] == "Services"){
 		$toronion = $msg[0];
 	}else{
