@@ -29,7 +29,7 @@
 		<?php
 			if($toronion != "Services"){
 				echo "<h3>Access by Tor</h3>";
-				echo "<h4>It looks like what you are using Tor</h4>Your ip is: <b style='color:green'>" . $msg[0] . "</b><br>And your country is: <b style='color:green'>" . $json->relays[0]->country_name . "</b><br>You while be redirected in few seconds to:<i style='color:green'>" . $tor . "</i></b><br>If you are not redirected click <a href='http://" . $toronion . "'>here</a>";
+				echo "<h4>It looks like what you are using Tor</h4>Your ip is: <b style='color:green'>" . $msg[0] . "</b><br>And your country is: <b style='color:green'>" . $json->relays[0]->country_name . "</b><br>You while be redirected in few seconds to:<i style='color:green'>" . $toronion . "</i></b><br>If you are not redirected click <a href='http://" . $toronion . "'>here</a>";
 			}
 		?>
 	</body>
