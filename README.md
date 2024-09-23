@@ -9,7 +9,8 @@ Of course you can simply drop it, or redirect it to another service.
 ## Configure your logs
 For have a separate log for this rule we need to configure rsyslog  
 Somthing like that work for me:  
-msg,contains,"Tor Network:" /var/log/nftables-tor-access.log
+msg,contains,"Tor Network:"
+*.* /var/log/nftables-tor-access.log
 
 ## How to see the TTL
 You can use tcpdump (/or tying to log with your firewall) for see the TTL  
