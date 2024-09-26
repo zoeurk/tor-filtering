@@ -7,11 +7,15 @@
 			exec("/usr/bin/wget --quiet -O /tmp/search.json https://onionoo.torproject.org/details?search=" . $msg[0], $output, $ipret);
 			$file = file_get_contents("/tmp/search.json");
 			$json = json_decode($file);
-			foreach($json->relays[0]->exit_addresses as $val){
-				if($msg[0] == $val){
-					$tor = file_get_contents("/var/opt/tor/service/hostname");
-					$toronion = str_replace(PHP_EOL, '', $tor);
-					break;
+			if($json == null){
+				$toronion = "Services";
+			}else{
+				foreach($json->relays[0]->exit_addresses as $val){
+						if($msg[0] == $val){
+						$tor = file_get_contents("/var/opt/tor/service/hostname");
+						$toronion = str_replace(PHP_EOL, '', $tor);
+						break;
+					}
 				}
 			}
 		}else{
