@@ -10,12 +10,16 @@
 			if($json == null){
 				$toronion = "Services";
 			}else{
-				foreach($json->relays[0]->exit_addresses as $val){
-						if($msg[0] == $val){
-						$tor = file_get_contents("/var/opt/tor/service/hostname");
-						$toronion = str_replace(PHP_EOL, '', $tor);
-						break;
+				if(isset($json->relays[0]->exit_addresses){
+					foreach($json->relays[0]->exit_addresses as $val){
+							if($msg[0] == $val){
+							$tor = file_get_contents("/var/opt/tor/service/hostname");
+							$toronion = str_replace(PHP_EOL, '', $tor);
+							break;
+						}
 					}
+				}else{
+					$toronion = "Services";
 				}
 			}
 		}else{
