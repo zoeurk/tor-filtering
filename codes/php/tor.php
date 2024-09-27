@@ -10,7 +10,7 @@
 			if($json == null){
 				$toronion = "Services";
 			}else{
-				if(isset($json->relays[0]->exit_addresses){
+				if(isset($json->relays[0]->exit_addresses)){
 					foreach($json->relays[0]->exit_addresses as $val){
 							if($msg[0] == $val){
 							$tor = file_get_contents("/var/opt/tor/service/hostname");
