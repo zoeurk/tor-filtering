@@ -3,11 +3,11 @@
 	if($msg[0] == "Services"){
 		$toronion = $msg[0];
 	}else{
+		$toronion = "Services";
 		if($_SERVER['REMOTE_ADDR'] != "127.0.0.1"){
 			exec("/usr/bin/wget --quiet -O /tmp/search.json https://onionoo.torproject.org/details?search=" . $msg[0], $output, $ipret);
 			$file = file_get_contents("/tmp/search.json");
 			$json = json_decode($file);
-			$toronion = "Services";
 			if($json != null){
 				if(isset($json->relays[0]->exit_addresses)){
 					foreach($json->relays[0]->exit_addresses as $val){
@@ -19,8 +19,6 @@
 					}
 				}
 			}
-		}else{
-			$toronion = "Services";
 		}
 	}
 ?>
