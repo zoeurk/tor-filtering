@@ -22,5 +22,5 @@ have to discuss this among themselves.
 P.S:&emsp;Maybe you have to test if the user have access to an hidden service...  
 &ensp;&emsp;&emsp; Or see if they are more than 1 packet before connecting to your service...  
 
-Maybe something like that seems to work:  
-iifname $interface ct state new tcp dport 80 meter user { ip saddr ct count over 3 } log prefix "[NetFilter] Normale User: " flags all  
+Maybe something like that can work:  
+iifname $interface ct state new tcp dport 80 meter user { ip saddr ct count over 3 } log prefix "[NetFilter] Normal User: " flags all  
