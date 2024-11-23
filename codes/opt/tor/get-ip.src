@@ -1,5 +1,1 @@
-#!/bin/sh
-tail -n1 /var/log/tor-access.log | sed 's/^.*\(Tor\|Services\) User:.*SRC=\([0-9\.]*\).*$/\1:\2/'
-#TOR=${ENTRY#Services:}
-#test ${TOR%%:*} != "Services" && printf "$TOR\n" || printf "Services\n"
-#printf "$TOR\n"
+sed -n '$ s/^.*Tor User:.*SRC=\([0-9\.]*\).*$/\1/p' /var/log/nftables-tor-access.log
