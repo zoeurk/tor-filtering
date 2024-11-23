@@ -21,7 +21,7 @@ msg,contains,"Tor User:"
 *.* /var/log/tor-access.log
 
 ## codes
-I give you somthing to try  
+I give you something to try  
 You should modify it (you are free to share, modify, redistribute, ...).  
 You can integrate it on your site.  
 Maybe Developpers, systems administrators (,...)  
