@@ -1,7 +1,6 @@
 # Filtering The Network Coming From Tor
 ## Configure your firewall (I use nftables)
-It's looks like who Tor Network have a very small TTL (less than 63)
-So we need to create a rules like:  
+We need to create a rules like:  
 iifname $interface ct state new tcp dport 80 log prefix "Services User: " flags all  
 Of course you can simply drop it, or redirect it to another service.  
   
