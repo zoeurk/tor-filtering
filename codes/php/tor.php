@@ -32,7 +32,7 @@
 		<?php
 			if($toronion != "Services"){
 				echo "<h3>Access by Tor</h3>";
-				echo "<h4>It looks like what you are using Tor</h4>Your ip is: <b style='color:green'>" . $msg[0] . "</b><br>And your country is: <b style='color:green'>" . $json->relays[0]->country_name . "</b><br>You while be redirected in few seconds to:<i style='color:green'>" . $toronion . "</i><br>If you are note redirected try <a href='http://zoeurk.freeddns.org/tor_onion_router'>ZoeurKJukeBox</a>";
+				echo "<h4>It looks like what you are using Tor</h4>Your ip is: <b style='color:green'>" . $msg[0] . "</b><br>And your country is: <b style='color:green'>" . $json->relays[0]->country_name . "</b><br>You while be redirected in few seconds to:<i style='color:green'>" . $toronion . "</i><br>If you are note redirected try <a href='http://" . $toronion . "'>The DarkSide</a>";
 			}
 		?>
 	</body>
