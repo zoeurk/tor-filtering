@@ -13,7 +13,7 @@ Of course you can simply drop(, reject) it, or redirect it to another service.
   
 ## Configure your logs
 For have a separate log for this rule we need to configure rsyslog  
-Somthing like that work for me:  
+Something like that work for me:  
 :omusrmsg:Services  
 msg,contains,"Services User:"  
 *.* /var/log/tor-access.log  
