@@ -3,13 +3,17 @@ Before continuing read try this "_https://github.com/zoeurk/tor-filtering/tree/m
 
 ## Configure your firewall (I use nftables)
 We need to create a rules like:  
-iifname $interface ct state new tcp dport 80 log prefix "Services User: " flags all  
-Of course you can simply drop it, or redirect it to another service.  
+chain TOR {  
+&emsp;ct original bytes != 60 counter packets 0 bytes 0 log prefix "[NetFilter] Tor User: " flags all  
+&emsp;ct count over 1 counter packets 0 bytes 0 log prefix "[NetFilter] Tor User: " flags all  
+}  
+iifname $interface ct state new tcp dport 80 jump TOR  
+Of course you can simply drop(, reject) it, or redirect it to another service.  
   
 ## Configure your logs
 For have a separate log for this rule we need to configure rsyslog  
 Somthing like that work for me:  
-msg,contains,"Services user:"
+msg,contains,"Tor user:"
 *.* /var/log/tor-access.log
 
 ## codes
@@ -21,10 +25,3 @@ have to discuss this among themselves.
 
 P.S:&emsp;Maybe you have to test if the user have access to an hidden service...  
 &ensp;&emsp;&emsp; Or see if they are more than 1 packet before connecting to your service...  
-  
-### Allez savoir:  
-chain TOR {  
-&emsp;ct original bytes != 60 counter packets 0 bytes 0 log prefix "[NetFilter] Tor User: " flags all  
-&emsp;ct count over 1 counter packets 0 bytes 0 log prefix "[NetFilter] Tor User: " flags all  
-}  
-iifname $interface ct state new tcp dport 80 jump TOR
