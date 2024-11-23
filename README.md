@@ -24,3 +24,5 @@ P.S:&emsp;Maybe you have to test if the user have access to an hidden service...
 
 Maybe something like that can work:  
 iifname $interface ct state new tcp dport 80 meter user { ip saddr ct count over 3 } log prefix "[NetFilter] Normal User: " flags all  
+In the nftables doc you have:  
+filter input tcp dport 22 meter test { ip saddr ct count over 2 } reject
