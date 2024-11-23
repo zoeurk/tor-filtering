@@ -17,7 +17,7 @@ Something like that work for me:
 :omusrmsg:Services  
 msg,contains,"Services User:"  
 *.* /var/log/tor-access.log  
-msg,contains,"Tor User:"
+msg,contains,"Tor User:"  
 *.* /var/log/tor-access.log
 
 ## codes
