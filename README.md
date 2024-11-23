@@ -8,11 +8,14 @@ chain TOR {
 &emsp;ct count over 1 counter packets 0 bytes 0 log prefix "[NetFilter] Tor User: " flags all  
 }  
 iifname $interface ct state new tcp dport 80 jump TOR  
+iifname $interface ct state new tcp dport 80 log prefix "[NetFilter] Services User: " flags all  
 Of course you can simply drop(, reject) it, or redirect it to another service.  
   
 ## Configure your logs
 For have a separate log for this rule we need to configure rsyslog  
 Somthing like that work for me:  
+msg,contains,"Services User:"
+*.* /var/log/tor-access.log
 msg,contains,"Tor User:"
 *.* /var/log/tor-access.log
 
