@@ -1,17 +1,17 @@
 <?php
-	exec(". /opt/get-ip.src", $msg, $ret);
+	//exec(". /opt/get-ip.src", $msg, $ret);
 	#if($msg[0] == "Services"){
-		$toronion = $msg[0];
+		//$toronion = $msg[0];
 	#}else{
 		$toronion = "Services";
 		if($_SERVER['REMOTE_ADDR'] != "127.0.0.1"){
-			exec("/usr/bin/wget --quiet -O /tmp/search.json https://onionoo.torproject.org/details?search=" . $msg[0], $output, $ipret);
+			exec("/usr/bin/wget --quiet -O /tmp/search.json https://onionoo.torproject.org/details?search=" . $_SERVER['REMOTE_ADDR'], $output, $ipret);
 			$file = file_get_contents("/tmp/search.json");
 			$json = json_decode($file);
 			if($json != null){
 				if(isset($json->relays[0]->exit_addresses)){
 					foreach($json->relays[0]->exit_addresses as $val){
-						if($msg[0] == $val){
+						if($_SERVER['REMOTE_ADDR'] == $val){
 							$tor = file_get_contents("/var/opt/tor/service/hostname");
 							$toronion = str_replace(PHP_EOL, '', $tor);
 							break;
