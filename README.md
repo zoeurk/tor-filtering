@@ -19,4 +19,4 @@ You can integrate it on your site.
 Maybe Developpers, systems administrators (,...)  
 have to discuss this among themselves.  
 
-
+P.S:Maybe you have to test if the user have access to an hidden service... :/  
