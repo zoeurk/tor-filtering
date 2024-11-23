@@ -14,8 +14,8 @@ Of course you can simply drop(, reject) it, or redirect it to another service.
 ## Configure your logs
 For have a separate log for this rule we need to configure rsyslog  
 Somthing like that work for me:  
-msg,contains,"Services User:"
-*.* /var/log/tor-access.log
+msg,contains,"Services User:"  
+*.* /var/log/tor-access.log  
 msg,contains,"Tor User:"
 *.* /var/log/tor-access.log
 
