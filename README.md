@@ -1,5 +1,5 @@
 # Filtering The Network Coming From Tor
-Before continuing read try this "_https://github.com/zoeurk/tor-filtering/tree/main_"  
+Before continuing read this "_https://github.com/zoeurk/tor-filtering/tree/main_"  
 
 ## Configure your firewall (I use nftables)
 We need to create a rules like:  
