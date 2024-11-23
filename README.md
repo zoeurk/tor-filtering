@@ -4,11 +4,11 @@ Before continuing read try this "_https://github.com/zoeurk/tor-filtering/tree/m
 ## Configure your firewall (I use nftables)
 We need to create a rules like:  
 chain TOR {  
-&emsp;ct original bytes != 60 counter packets 0 bytes 0 log prefix "[NetFilter] Tor User: " flags all  
-&emsp;ct count over 1 counter packets 0 bytes 0 log prefix "[NetFilter] Tor User: " flags all  
+&emsp;ct original bytes != 60 counter log prefix "[NetFilter] Tor User: " flags all  
+&emsp;ct count over 1 counter log prefix "[NetFilter] Tor User: " flags all  
 }  
 iifname $interface ct state new tcp dport 80 jump TOR  
-iifname $interface ct state new tcp dport 80 log prefix "[NetFilter] Services User: " flags all  
+iifname $interface ct state new tcp dport 80 counter log prefix "[NetFilter] Services User: " flags all  
 Of course you can simply drop(, reject) it, or redirect it to another service.  
   
 ## Configure your logs
