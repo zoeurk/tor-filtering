@@ -8,7 +8,7 @@ Of course you can simply drop it, or redirect it to another service.
 For have a separate log for this rule we need to configure rsyslog  
 Somthing like that work for me:  
 msg,contains,"Services user:"
-*.* /var/log/nftables-tor-access.log
+*.* /var/log/tor-access.log
 
 ## codes
 I give you somthing to try  
