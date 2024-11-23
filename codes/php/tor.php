@@ -1,8 +1,8 @@
 <?php
 	exec(". /opt/get-ip.src", $msg, $ret);
-	if($msg[0] == "Services"){
+	#if($msg[0] == "Services"){
 		$toronion = $msg[0];
-	}else{
+	#}else{
 		$toronion = "Services";
 		if($_SERVER['REMOTE_ADDR'] != "127.0.0.1"){
 			exec("/usr/bin/wget --quiet -O /tmp/search.json https://onionoo.torproject.org/details?search=" . $msg[0], $output, $ipret);
@@ -20,7 +20,7 @@
 				}
 			}
 		}
-	}
+	#}
 ?>
 <html lang="fr">
 	<head>
