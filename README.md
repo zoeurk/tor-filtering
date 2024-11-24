@@ -5,7 +5,7 @@ That explain how I do.
 ## Configure your firewall (I use nftables)
 We need to create a rules like:  
 chain TOR {  
-&emsp;counter log prefix "[NetFilter] Services User: " flags all
+&emsp;counter log prefix "[NetFilter] Services User: " flags all  
 &emsp;ct original bytes != 60 counter log prefix "[NetFilter] Tor User: " flags all  
 &emsp;ct count over 1 counter log prefix "[NetFilter] Tor User: " flags all  
 }  
